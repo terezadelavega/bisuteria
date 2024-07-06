@@ -11,13 +11,6 @@ class Cliente{
     private $contrasena;
 
     public function __construct(){
-    /*    $this->username = $username;
-        $this->password = $password;
-        $this->apellidos = $apellidos;
-        $this->nombres = $nombres;
-        $this->tipo = $tipo;
-        $this->id_escuela = $id_escuela;
-        $this->email = $email; */
     }
 
     public function mostrar(){
