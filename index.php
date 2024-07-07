@@ -7,4 +7,5 @@ if (isset($_SESSION["id_cliente"])) {
 } else {
     header("Location: login.php");
     exit();
+    
 }
