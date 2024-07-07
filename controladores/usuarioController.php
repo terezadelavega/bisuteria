@@ -38,4 +38,9 @@ class usuarioController{
             echo "usuario y/o contraseña no validos";
         }
     }
+
+    public function guardar(String $username, String $contrasena, String $nombres, String $apellidos, String $email, String $tipo, String $direccion){
+        $usuario = new Usuario();
+        return $usuario->guardar($username, $contrasena, $nombres, $apellidos, $email, $tipo, $direccion);
+        }
 }

@@ -22,6 +22,5 @@ class Conn{
     public function cerrar(){
         $this->conexion = NULL;
     }
-
-
 }
+?>
