@@ -6,4 +6,9 @@ class productoController{
         $producto = new Producto();
         return $producto->guardar($nombre, $descripcion, $precio, $stock);
         }
+
+    public function mostrar(){
+        $producto = new Producto();
+        return $producto->mostrar();
+    }
 }

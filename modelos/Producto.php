@@ -19,4 +19,14 @@ class Producto{
         $conn->cerrar();
         return $resultado;
     }
+
+    public function mostrar(){
+        $conn = new Conn();
+        $conexion = $conn->conectar();
+        $sql = "SELECT * FROM producto";
+        $resultado = $conexion->query($sql);
+        $conn->cerrar();
+        return $resultado;
+    }
+    
 }

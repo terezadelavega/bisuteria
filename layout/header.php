@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BIENVENIDO A TU PÁGINA DE BISUTERÍA</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   </head>
   <body>
-  <div id="app">
-  <div class="header">
-    <h2>Comics</h2>
-</div>
-</div>
-      <button @click="showCart = !showCart" v-show="!verified">
   <nav data-bs-theme="dark" class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Sesion Iniciada</a>
