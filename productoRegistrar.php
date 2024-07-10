@@ -1,9 +1,9 @@
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-    <input type="text" name="nombre" placeboard="nombre del producto"><br>
-    <input type="text" name="descripcion" placeboard="descripcion del producto"><br>
-    <input type="int" name="precio" placeboard="precio del producto"><br>
-    <input type="int" name="stock" placeboard="stock del producto"><br>
-    <input type="submit" value="Registrar">
+    <input type="text" name="nombre" placeholder="nombre del producto"><br>
+    <input type="text" name="descripcion" placeholder="descripcion del producto"><br>
+    <input type="int" name="precio" placeholder="precio del producto"><br>
+    <input type="int" name="stock" placeholder="stock del producto"><br>
+    <input type="submit" value="REGISTRAR">
 </form>
 
 <?php
@@ -30,9 +30,20 @@ if(!empty($_POST)){
         $contadorProducto++;
     }
 
-    if($cantidad==""){
+    if($stock==""){
         echo "El campo cantidad es obligatorio<br>";
         $contadorProducto++;
+    }
+
+    if($contadorProducto==0){
+        require_once "controladores/productoController.php";
+        $pc = new ProductoController();
+        $respuesta = $pc->guardar($nombre, $descripcion, $precio, $stock);
+        if($respuesta > 0){
+            echo "Ha registrado correctamente el producto";
+        }else{
+            echo "ERROR: el producto no se ha registrado";
+        }
     }
     
 }
