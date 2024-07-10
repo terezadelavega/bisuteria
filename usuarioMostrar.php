@@ -3,7 +3,7 @@
     require_once "controladores/usuarioController.php";
     $uc = new usuarioController();
     $usuarios = $uc->mostrar();
-    /*echo "<h1>Bienvenido(a) ".$_SESSION["usuario"]." (".$_SESSION["tipo"].")</h1>";*/
+    echo "<h1>Bienvenido(a) ".$_SESSION["usuario"]." (".$_SESSION["tipo"].")</h1>";
 ?>
 
 <table class="table">

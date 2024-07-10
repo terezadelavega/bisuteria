@@ -2,7 +2,6 @@
 class Pedido{
     private $cantidad;
     private $precio_total;
-    private $id_usuario;
     private $id_pedido;
     private $id_pago;
 
@@ -13,7 +12,11 @@ class Pedido{
     public function mostrar(int $id_producto){
         $conn = new Conn();
         $conexion = $conn->conectar();
-        $sql = "SELECT * FROM pedido";
+        $sql = "SELECT pro.nombre, pro.precio, pe.cantidad, pe.precio_tota
+        FROM pedido AS pe
+        JOIN producto AS pro ON pe.id_producto = pro.id_producto
+        JOIN usuario AS u ON pe.id_usuario = u.id_usuario
+        WHERE pe.id_pedido = id_pedido;";
         $resultado = $conexion->query($sql);
         $conn->cerrar();
         return $resultado;

@@ -17,19 +17,40 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="poductoRegistrar.php">Registrar Producto</a>
+          <a class="nav-link" href="productoRegistrar.php">Registrar Producto</a>
         </li>
         <?php
         session_start();
-        if($_SESSION["tipo"]=="administrador"){
+        /*if($_SESSION["tipo"]=="administrador"){
             echo "<li class='nav-item'>
                     <a class='nav-link' href='productoRegistrar.php'>Ver Producto</a>
                 </li>";
-        }else{
+        }*/
+        if($_SESSION["tipo"]=="Administrador"){
+          echo "<li class='nav-item'>
+                  <a class='nav-link' href='productoMostrar.php'>Ver Producto</a>
+              </li>";
+      }        
+        else{
             echo "<li class='nav-item'>
                     <a class='nav-link' href='usuarioMostrar.php'>Ver Empleados</a>
                 </li>";
-        }        
+        }
+
+        if($_SESSION["tipo"]=="Cliente"){
+          echo "<li class='nav-item'>
+                  <a class='nav-link' href='productoMostrar.php'>Ver Producto</a>
+              </li>";
+      }        
+      if($_SESSION["tipo"]=="Empleado"){
+        echo "<li class='nav-item'>
+                <a class='nav-link' href='productoMostrar.php'>Ver Producto</a>
+            </li>";
+        }else {
+          echo "<li class='nav-item'>
+                  <a class='nav-link' href='usuarioMostrar.php'>Ver Usuarios</a>
+                </li>";
+        }          
     ?>  
         <li class="nav-item">
           <a class="nav-link" href="login.php">Cerrar Sesion</a>

@@ -2,7 +2,10 @@
     require_once "controladores/productoController.php";
     $pc = new productoController();
     $productos = $pc->mostrar();
-    /*echo "<h1>Bienvenido(a) ".$_SESSION["usuario"]." (".$_SESSION["tipo"].")</h1>";*/
+    if($_SESSION["tipo"]=="Cliente"){
+        echo "<h1>Bienvenido(a) ".$_SESSION["usuario"]." (".$_SESSION["tipo"].")</h1>";
+
+    }
 ?>
 <link rel="stylesheet" href="style.css">
 <div>

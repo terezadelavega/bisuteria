@@ -1,8 +1,10 @@
-<form method="post" action=<?php echo $_SERVER["PHP_SELF"]; ?>>
+<link rel="stylesheet" href="style.css">
+<form method="post" aligen="center" action=<?php echo $_SERVER["PHP_SELF"]; ?>>
     <input type="text" name="username" placeholder="Ingrese usuario"><br>
     <input type="password" name="contra" placeholder="Ingrese contraseña"><br>
     <input type="submit" name="submit" value="Login">
 </form>
+
 
 <?php
 if(isset($_POST["submit"])){
