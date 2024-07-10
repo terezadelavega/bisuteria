@@ -1,6 +1,5 @@
 <?php
 require_once "modelos/Pedido.php";
-
 class pedidoController{
     public function mostrar(){
         $pedido = new Pedido();

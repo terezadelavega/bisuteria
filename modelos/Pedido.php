@@ -1,4 +1,7 @@
 <?php
+
+require_once "Conn.php";
+
 class Pedido{
     private $cantidad;
     private $precio_total;
@@ -9,10 +12,10 @@ class Pedido{
 
     }
 
-    public function mostrar(int $id_producto){
+    public function mostrar(){
         $conn = new Conn();
         $conexion = $conn->conectar();
-        $sql = "SELECT pro.nombre, pro.precio, pe.cantidad, pe.precio_tota
+        $sql = "SELECT pro.nombre, pro.precio, pe.cantidad, pe.precio_total, u.nombres
         FROM pedido AS pe
         JOIN producto AS pro ON pe.id_producto = pro.id_producto
         JOIN usuario AS u ON pe.id_usuario = u.id_usuario

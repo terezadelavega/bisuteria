@@ -1,6 +1,6 @@
 <?php
     require_once "layout/header.php";
-    require_once "controladores/pedidoController.php";
+    require_once "controladores/pedidoCotroller.php";
     $pec = new pedidoController();
     $pedido = $pec->mostrar();
 ?>
@@ -11,16 +11,18 @@
         <th>PRECIO</th>
         <th>CANTIDAD</th>
         <th>PRECIO TOTAL</th>
+        <th>NOMBRE CLIENTE</th>
     </tr>
     <?php
-    /*foreach($pedidos as $pedido){
+    foreach($pedido as $pedido){
         echo "<tr>
-            <td>".$pedido["pro.nombre"]."</td>
-            <td>".$pedido["pro.precio"]."</td>
-            <td>".$pedido["pe.cantidad"]."</td>
-            <td>".$pedido["pe.precio_total"]."</td>
+            <td>".$pedido["nombre"]."</td>
+            <td>".$pedido["precio"]."</td>
+            <td>".$pedido["cantidad"]."</td>
+            <td>".$pedido["precio_total"]."</td>
+            <td>".$pedido["nombres"]."</td>
         </tr>";
-    }*/
+    }
     ?>
 </table>
 <?php

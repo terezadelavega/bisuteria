@@ -18,7 +18,7 @@ class usuarioController{
         foreach($usuarioValidado as $item){
             $usuario_id = $item["id"];
             $usuario_nombre = $item["nombres"]." ".$item["apellidos"];
-            $contrasena_bd = $item["contra"];
+            $contrasena_bd = $item["contrasena"];
             $tipo = $item["tipo"];
             $contador++;
         }
