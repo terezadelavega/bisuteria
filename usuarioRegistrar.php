@@ -5,6 +5,7 @@
     <input type="text" name="apellidos" placeholder="Ingrese apellidos"><br>
     <input type="text" name="email" placeholder="Ingrese correo electrónico"><br>
     <select name="tipo">
+        <option value=""> </option>
         <option value="Administrador">Administrador</option>
         <option value="Empleado">Empleado</option>
         <option value="Usuario">Cliente</option>
