@@ -2,14 +2,10 @@
     require_once "controladores/productoController.php";
     $pc = new productoController();
     $productos = $pc->mostrar();
-    if($_SESSION["tipo"]=="Cliente"){
-        echo "<h1>Bienvenido(a) ".$_SESSION["usuario"]." (".$_SESSION["tipo"].")</h1>";
-
-    }
 ?>
 <link rel="stylesheet" href="style.css">
 <div>
-        <h2>BISUTERIA SHOP</h2>
+        <h2>BISUTERIA</h2>
         
         <button id="cart-button" class="trigger cart-button-style">CARRITO</button>
         
@@ -35,18 +31,16 @@
                 <table id="cart-table">
                     <thead id="cart-table-header">
                         <tr>
-                            <th class="name-col">Product Name</th> 
-                            <th class="quantity-col">Quantity</th>       
-                            <th class="price-col">Price</th>
-                            <th class="updated-price-col">Updated Price</th>
-                            <th class="update-col">Update</th>
-                            <th class="remove-col">Remove</th>
+                            <th class="name-col">NOMBRE DEL PRODUCTO</th> 
+                            <th class="quantity-col">CANTIDAD</th>       
+                            <th class="price-col">PRECIO</th>
+                            <th class="update-col">Actualizar</th>
+                            <th class="remove-col">Quitar</th>
                         </tr>
                         <tr>
                             <th class="name-col">Product Name</th> 
                             <th class="quantity-col">Quantity</th>       
                             <th class="price-col">Price</th>
-                            <th class="updated-price-col">Updated Price</th>
                             <th class="update-col">Update</th>
                             <th class="remove-col">Remove</th>
                         </tr>
@@ -70,13 +64,13 @@
                         <tr id="promo-checkout">
                             <td id="promo-wrapper">
                                 <input id="promo" placeholder="Input Promo Code">
-                                <button id="apply-promo">Apply Promo</button>
+                                <button id="apply-promo">Aplicar Promoción</button>
                             </td>
                             <td>
                                 <button id="checkout">Checkout</button>
                             </td>
                             <td>
-                                <button id="ks" class="keep-shopping">Keep Shopping</button>
+                                <button id="ks" class="keep-shopping">Cancelar Compra</button>
                             </td>
                         </tr>
                     </tbody>

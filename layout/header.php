@@ -21,11 +21,6 @@
         </li>
         <?php
         session_start();
-        /*if($_SESSION["tipo"]=="administrador"){
-            echo "<li class='nav-item'>
-                    <a class='nav-link' href='productoRegistrar.php'>Ver Producto</a>
-                </li>";
-        }*/
         if($_SESSION["tipo"]=="Administrador"){
           echo "<li class='nav-item'>
                   <a class='nav-link' href='productoMostrar.php'>Ver Producto</a>
@@ -42,14 +37,12 @@
                   <a class='nav-link' href='productoMostrar.php'>Ver Producto</a>
               </li>";
       }        
-      if($_SESSION["tipo"]=="Empleado"){
+        if($_SESSION["tipo"]=="Empleado"){
         echo "<li class='nav-item'>
                 <a class='nav-link' href='productoMostrar.php'>Ver Producto</a>
             </li>";
         }else {
-          echo "<li class='nav-item'>
-                  <a class='nav-link' href='usuarioMostrar.php'>Ver Usuarios</a>
-                </li>";
+          echo " ";
         }          
     ?>  
         <li class="nav-item">
