@@ -1,11 +1,22 @@
-<form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-    <input type="text" name="nombre" placeholder="nombre del producto"><br>
-    <input type="text" name="descripcion" placeholder="descripcion del producto"><br>
-    <input type="int" name="precio" placeholder="precio del producto"><br>
-    <input type="int" name="stock" placeholder="stock del producto"><br>
-    <input type="submit" value="REGISTRAR">
-</form>
-
+<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>REGISTRAR PRODUCTO</h1>
+			</div>
+                <link rel="stylesheet" href="styleLogin.css">
+                <div class="login-form">
+                    <div class="control-group">
+                <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                    <input type="text" name="nombre" placeholder="nombre del producto"><br>
+                    <input type="text" name="descripcion" placeholder="descripcion del producto"><br>
+                    <input type="int" name="precio" placeholder="precio del producto"><br>
+                    <input type="int" name="stock" placeholder="stock del producto"><br>
+                    <input class="btn btn-primary btn-large btn-block" type="submit" value="REGISTRAR">
+                </form>
+				</div>
+			</div>
+		</div>
+	</div>
 <?php
 if(!empty($_POST)){
     $nombre = trim($_POST["nombre"]);
@@ -47,3 +58,4 @@ if(!empty($_POST)){
     }
     
 }
+?>

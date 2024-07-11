@@ -1,3 +1,20 @@
+<style>
+        h2 {
+            text-align: center;
+        }
+        th {
+            background-color: blue;
+            color: white; /* Esto es opcional para cambiar el color del texto en las celdas del encabezado */
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+    </style>
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
     <input type="text" name="username" placeholder="Ingrese username"><br>
     <input type="password" name="contrasena" placeholder="Ingrese contraseña"><br>

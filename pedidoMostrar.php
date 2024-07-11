@@ -4,8 +4,25 @@
     $pec = new pedidoController();
     $pedido = $pec->mostrar();
 ?>
-
+<style>
+        h2 {
+            text-align: center;
+        }
+        th {
+            background-color: blue;
+            color: white; /* Esto es opcional para cambiar el color del texto en las celdas del encabezado */
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+    </style>
 <table class="table">
+    <h2>DATOS DEL PEDIDO</h2>
     <tr>
         <th>NOMBRE DEL PRODUCTO</th>
         <th>PRECIO</th>
@@ -26,4 +43,3 @@
     ?>
 </table>
 <?php
-require_once "layout/footer.php";
