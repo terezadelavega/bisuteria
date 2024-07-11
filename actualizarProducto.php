@@ -58,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->cerrar();
 ?>
 
-<!-- HTML Form -->
 <!DOCTYPE html>
 <html lang="es">
 <head>

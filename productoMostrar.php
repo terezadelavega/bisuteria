@@ -14,7 +14,7 @@ $productos = $pc->mostrar();
     <div id="shop">
        <!-- Productos -->
         <?php foreach($productos as $producto): ?>
-        <div class='products ios apple' id='iphone-x'>
+        <div class='products ios apple' id='product-1'>
             <img class='product-image' src='img/joyas.png'>
             <p class='product-name'>Jade</p>
             <p class='product-description'>Nueva edicion</p>
@@ -22,7 +22,7 @@ $productos = $pc->mostrar();
             <button class='add-to-cart' data-product-id= '1'>AGREGAR AL CARRITO</button>
         </div>
         
-        <div class='products ios apple' id='iphone-x'>
+        <div class='products ios apple' id='product-2'>
             <img class='product-image' src='img/corazon.png'>
             <p class='product-name'>Jade</p>
             <p class='product-description'>Nueva edicion</p>
@@ -30,7 +30,7 @@ $productos = $pc->mostrar();
             <button class='add-to-cart' data-product-id= '2' >AGREGAR AL CARRITO</button>
         </div>
 
-        <div class='products ios apple' id='iphone-x'>
+        <div class='products ios apple' id='product-3'>
             <img class='product-image' src='img/paloma.jpg'>
             <p class='product-name'>Florence</p>
             <p class='product-description'> Una unica edicion</p>
@@ -38,7 +38,7 @@ $productos = $pc->mostrar();
             <button class='add-to-cart' data-product-id= '3' >AGREGAR AL CARRITO</button>
         </div>
 
-        <div class='products ios apple' id='iphone-x'>
+        <div class='products ios apple' id='product-4'>
             <img class='product-image' src='img/esmeralda.jpg'>
             <p class='product-name'>Collar </p>
             <p class='product-description'>Esmeralda</p>
@@ -46,7 +46,7 @@ $productos = $pc->mostrar();
             <button class='add-to-cart' data-product-id= '4' >AGREGAR AL CARRITO</button>
         </div>
 
-        <div class='products ios apple' id='iphone-x'>
+        <div class='products ios apple' id='product-5'>
             <img class='product-image' src='img/anillo.jpg'>
             <p class='product-name'>Unico</p>
             <p class='product-description'>De corazon</p>
@@ -54,7 +54,7 @@ $productos = $pc->mostrar();
             <button class='add-to-cart' data-product-id= '5' >AGREGAR AL CARRITO</button>
         </div>
 
-        <div class='products ios apple' id='iphone-x'>
+        <div class='products ios apple' id='product-6'>
             <img class='product-image' src='img/anillo.png'>
             <p class='product-name'>Unico</p>
             <p class='product-description'>Diamante</p>
@@ -62,12 +62,12 @@ $productos = $pc->mostrar();
             <button class='add-to-cart' data-product-id= '6' >AGREGAR AL CARRITO</button>
         </div>
 
-        <div class='products ios apple' id='iphone-x'>
+        <div class='products ios apple' id='product-7'>
             <img class='product-image' src='img/image.jpg'>
             <p class='product-name'>Limitado</p>
             <p class='product-description'>Con diamantes en las alas</p>
             <p class='product-price' value='999'>400.00</p>
-            <button class='add-to-cart' data-product-id= '6' >AGREGAR AL CARRITO</button>
+            <button class='add-to-cart' data-product-id= '7' >AGREGAR AL CARRITO</button>
         </div>
 
         <?php endforeach; ?>

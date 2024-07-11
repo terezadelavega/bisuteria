@@ -57,7 +57,7 @@
             <select name="tipo" required>
                 <option value="Administrador">Administrador</option>
                 <option value="Empleado">Empleado</option>
-                <option value="Usuario">Cliente</option>
+                <option value="Usuario">Usuario</option>
             </select><br>
             <input type="text" name="direccion" placeholder="Ingrese dirección" required><br>
             <input type="submit" value="Guardar">

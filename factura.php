@@ -66,10 +66,10 @@ if (isset($_POST['cart'])) {
             <tbody>
                 <?php foreach($factura['productos'] as $producto): ?>
                     <tr>
-                        <td><?= $producto['nombre'] ?></td>
-                        <td><?= $producto['cantidad'] ?></td>
-                        <td><?= $producto['precio'] ?></td>
-                        <td><?= $producto['subtotal'] ?></td>
+                        <td><?= htmlspecialchars($producto['nombre']) ?></td>
+                        <td><?= htmlspecialchars($producto['cantidad']) ?></td>
+                        <td><?= htmlspecialchars($producto['precio']) ?></td>
+                        <td><?= htmlspecialchars($producto['subtotal']) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -340,3 +340,210 @@ document.getElementById('checkout').addEventListener('click', function() {
     document.body.appendChild(form);
     form.submit();
 });
+
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var cart = {
+        items: [
+            {
+                product: "iphone-x",
+                productName: "Limitado",
+                productPrice: 400,
+                productUpdatedPrice: 400
+            }
+        ],
+        subtotal: 400,
+        iphoneDis: 0,
+        androidDis: 0,
+        Off5: 0,
+        finalDis: 0,
+        total: 400
+    };
+    var form = new FormData();
+    form.append('cart', JSON.stringify(cart));
+
+    fetch('factura.php', {
+        method: 'POST',
+        body: form
+    }).then(response => response.text()).then(html => {
+        document.body.innerHTML = html;
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const cart = {};
+    const cartTableBody = document.getElementById('cart-table-body');
+    const subtotalElement = document.getElementById('subtotal');
+    const totalElement = document.getElementById('total');
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-product-id');
+            const productElement = this.closest('.products');
+            const productName = productElement.querySelector('.product-name').textContent;
+            const productPrice = parseFloat(productElement.querySelector('.product-price').getAttribute('value'));
+
+            if (cart[productId]) {
+                cart[productId].cantidad += 1;
+            } else {
+                cart[productId] = {
+                    nombre: productName,
+                    cantidad: 1,
+                    precio: productPrice,
+                    subtotal: productPrice
+                };
+            }
+
+            cart[productId].subtotal = cart[productId].cantidad * cart[productId].precio;
+            renderCart();
+            showConfirmationBox();
+        });
+    });
+
+    function renderCart() {
+        cartTableBody.innerHTML = '';
+        let subtotal = 0;
+
+        for (const productId in cart) {
+            const product = cart[productId];
+            subtotal += product.subtotal;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${product.nombre}</td>
+                <td>${product.cantidad}</td>
+                <td>${product.precio.toFixed(2)}</td>
+                <td>${product.subtotal.toFixed(2)}</td>
+                <td><button class="update-cart" data-product-id="${productId}">Actualizar</button></td>
+                <td><button class="remove-from-cart" data-product-id="${productId}">Eliminar</button></td>
+            `;
+            cartTableBody.appendChild(row);
+        }
+
+        subtotalElement.textContent = subtotal.toFixed(2);
+        totalElement.textContent = subtotal.toFixed(2);
+
+        document.querySelectorAll('.remove-from-cart').forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.getAttribute('data-product-id');
+                delete cart[productId];
+                renderCart();
+            });
+        });
+
+        document.querySelectorAll('.update-cart').forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.getAttribute('data-product-id');
+                const newQuantity = prompt("Ingrese la nueva cantidad:", cart[productId].cantidad);
+                if (newQuantity != null && !isNaN(newQuantity)) {
+                    cart[productId].cantidad = parseInt(newQuantity);
+                    cart[productId].subtotal = cart[productId].cantidad * cart[productId].precio;
+                    renderCart();
+                }
+            });
+        });
+    }
+
+    function showConfirmationBox() {
+        const confirmationBox = document.getElementById('confirmationBox');
+        confirmationBox.style.display = 'block';
+        setTimeout(() => {
+            confirmationBox.style.display = 'none';
+        }, 2000);
+    }
+});
+
+document.getElementById('checkout').addEventListener('click', function () {
+    const cartData = JSON.stringify(cart);
+    const form = new FormData();
+    form.append('cart', cartData);
+
+    fetch('factura.php', {
+        method: 'POST',
+        body: form
+    }).then(response => response.text()).then(html => {
+        document.body.innerHTML = html;
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cart = [];
+    const cartTableBody = document.getElementById('cart-table-body');
+    const subtotalElement = document.getElementById('subtotal');
+    const totalElement = document.getElementById('total');
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productElement = this.closest('.products');
+            const productId = this.getAttribute('data-product-id');
+            const productName = productElement.querySelector('.product-name').textContent;
+            const productPrice = parseFloat(productElement.querySelector('.product-price').textContent);
+
+            const existingProductIndex = cart.findIndex(item => item.id === productId);
+            if (existingProductIndex >= 0) {
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                });
+            }
+            updateCart();
+        });
+    });
+
+    function updateCart() {
+        cartTableBody.innerHTML = '';
+        let subtotal = 0;
+
+        cart.forEach(product => {
+            const row = document.createElement('tr');
+            const subtotalProduct = product.price * product.quantity;
+            subtotal += subtotalProduct;
+
+            row.innerHTML = `
+                <td>${product.name}</td>
+                <td><input type="number" value="${product.quantity}" class="product-quantity" data-product-id="${product.id}"></td>
+                <td>${product.price.toFixed(2)}</td>
+                <td>${subtotalProduct.toFixed(2)}</td>
+                <td><button class="update-cart" data-product-id="${product.id}">Actualizar</button></td>
+                <td><button class="remove-from-cart" data-product-id="${product.id}">Eliminar</button></td>
+            `;
+
+            cartTableBody.appendChild(row);
+        });
+
+        subtotalElement.textContent = subtotal.toFixed(2);
+        totalElement.textContent = subtotal.toFixed(2);
+
+        document.querySelectorAll('.product-quantity').forEach(input => {
+            input.addEventListener('change', function() {
+                const productId = this.getAttribute('data-product-id');
+                const newQuantity = parseInt(this.value);
+                const productIndex = cart.findIndex(item => item.id === productId);
+
+                if (productIndex >= 0 && newQuantity > 0) {
+                    cart[productIndex].quantity = newQuantity;
+                } else if (productIndex >= 0 && newQuantity === 0) {
+                    cart.splice(productIndex, 1);
+                }
+                updateCart();
+            });
+        });
+
+        document.querySelectorAll('.remove-from-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                const productIndex = cart.findIndex(item => item.id === productId);
+
+                if (productIndex >= 0) {
+                    cart.splice(productIndex, 1);
+                }
+                updateCart();
+            });
+        });
+    }
+});
