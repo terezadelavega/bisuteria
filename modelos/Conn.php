@@ -1,31 +1,26 @@
-
 <?php
 
-class Conn {
+class Conn{
+
     private $dsn;
     private $usuario;
     private $pass;
     private $conexion;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->dsn = "mysql:host=localhost;dbname=bisuteria";
         $this->usuario = "root";
         $this->pass = "";
     }
 
-    public function conectar() {
-        try {
-            $this->conexion = new PDO($this->dsn, $this->usuario, $this->pass);
-
-            $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $this->conexion;
-        } catch (PDOException $e) {
-            echo 'Error de conexión: ' . $e->getMessage();
-            return null;
-        }
+    public function conectar(){
+        $this->conexion = new PDO($this->dsn, $this->usuario, $this->pass);
+        return $this->conexion;
     }
 
-    public function cerrar() {
-        $this->conexion = null;
+    public function cerrar(){
+        $this->conexion = NULL;
     }
 }
+?>

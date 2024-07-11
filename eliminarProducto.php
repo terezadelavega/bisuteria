@@ -1,23 +1,19 @@
 <?php
-require_once 'modelos/Conn.php';
-require_once 'modelos/Producto.php';
+    require_once 'modelos/Producto.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
-    $id_producto = $_GET['id'];
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
+        $producto = new Producto();
+        $id = intval($_GET['id']);
+        $resultado = $producto->eliminarProducto($id);
 
-    $conn = new Conn();
-    $conexion = $conn->conectar();
-    $producto = new Producto($conexion);
-
-    if ($producto->eliminarProducto($id_producto)) {
-        echo "Producto eliminado correctamente.";
-    } else {
-        echo "Error al eliminar el producto.";
+        if ($resultado) {
+            echo "Producto eliminado exitosamente";
+        } else {
+            echo "Error al eliminar el producto";
+        }
     }
-
-    $conn->cerrar();
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
